@@ -15,8 +15,8 @@ const onRequest = (req, res) => {
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(html);
         });
-    } else if (url === "/cars") {
-        fs.readFile("./public/cars.html", "UTF-8", function(err, html) {
+    } else if (url === "/searchCar.html") {
+        fs.readFile("./public/searchCar.html", "UTF-8", function(err, html) {
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(html);
         });
