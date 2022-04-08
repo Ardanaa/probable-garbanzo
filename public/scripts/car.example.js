@@ -41,8 +41,8 @@ class Car {
 
     render() {
             return `
-      <div class="card mt-4">
-        <img src="${this.image}" class="card-img-top" alt="${this.manufacture}" height="160px">
+      <div class="card mt-4 mb-2" style="height: 95%">
+        <img src="${this.image}" class="card-img-top" alt="${this.manufacture}" height= 300px; width=100%;">
         <div class="card-body">
           <h5 class="nama-mobil"><b>${this.manufacture} ${this.model}</b></h5>
           <p class="harga-mobil"><b>Rp. ${this.rentPerDay} / hari</b></p>

@@ -48,17 +48,11 @@ class App {
         console.log(inputTimeValue);
         Car.list
             .filter((car) => {
-                console.log(car.availableAt.toISOString()); // toISOString untuk mengubah tanggal menjadi string
-                console.log(car.availableAt.toISOString().substring(11, 16));
-                console.log(
-                    car.availableAt.toISOString().substring(0, 10) == inputDateValue &&
-                    car.availableAt.toISOString().substring(11, 16) < inputTimeValue
-                );
                 if (
                     car.capacity === parseInt(inputPassangersValue) &&
-                    car.available === Boolean(driverAvailabilityValue) &&
-                    car.availableAt.toISOString().substring(0, 10) == inputDateValue &&
-                    car.availableAt.toISOString().substring(11, 16) < inputTimeValue
+                    car.availableAt.toISOString().substring(0, 10) === inputDateValue &&
+                    car.availableAt.toISOString().substring(12, 16) > inputTimeValue &&
+                    car.available === Boolean(driverAvailabilityValue)
                 ) {
                     console.log(car);
                     return car;
@@ -66,15 +60,10 @@ class App {
             })
             .map((car) => {
                 const col = document.createElement("div");
-                col.className = "col-4";
+                col.className = "col-sm-4";
                 col.innerHTML = car.render();
                 baris.appendChild(col);
             });
-        // Car.list.forEach((car) => {
-        //   const node = document.createElement("div");
-        //   node.innerHTML = car.render();
-        //   this.carContainerElement.appendChild(node);
-        // });
     };
 
     async load() {
